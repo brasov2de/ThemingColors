@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<manifest>
+  <control namespace="Dianamics" constructor="ThemingColors" version="0.1.2" display-name-key="ThemingColors" description-key="ThemingColors description" control-type="virtual" >   
+    <external-service-usage enabled="false">     
+    </external-service-usage>
+
+    <property name="isDarkMode" display-name-key="IsDarkMode" description-key="IsDarkMode" 
+      of-type="TwoOptions" usage="input" 
+      required="false" pfx-default-value="false" />
+
+    <property name="OutputTheme" display-name-key="OutputTheme" description-key="OutputTheme" of-type="Object" usage="output" />
+    <property name="OutputThemeSchema" display-name-key="OutputThemeSchema" description-key="OutputThemeSchema" of-type="SingleLine.Text" usage="input" hidden="true"/> 
+
+    <property-dependencies>      
+      <property-dependency input="OutputThemeSchema" output="OutputTheme" required-for="schema" />
+    </property-dependencies>
+
+    <event name="OnColorChanged" display-name-key="OnColorChanged" description-key="OnColorChanged" 
+        pfx-default-value='Set(glbTheme, {
+    ErrorBackground : ColorValue(Self.OutputTheme.colorStatusDangerBackground1), 
+    ErrorForeground: ColorValue(Self.OutputTheme.colorStatusDangerForeground1), 
+    ErrorBorder: ColorValue(Self.OutputTheme.colorStatusDangerBorder1),    
+    WarningBackground : ColorValue(Self.OutputTheme.colorStatusWarningBackground1), 
+    WarningForeground: ColorValue(Self.OutputTheme.colorStatusWarningForeground1), 
+    WarningBorder: ColorValue(Self.OutputTheme.colorStatusWarningBorder1), 
+    SuccessBackground: ColorValue(Self.OutputTheme.colorStatusSuccessBackground1),
+    SuccessForegroud: ColorValue(Self.OutputTheme.colorStatusSuccessForeground1),
+    SuccessBorder: ColorValue(Self.OutputTheme.colorStatusSuccessBorder1),
+    NeutralForeground: ColorValue(Self.OutputTheme.colorNeutralForeground1),
+    NeutralForegroundHover: ColorValue(Self.OutputTheme.colorNeutralForeground1Hover),
+    NeutralForegroundPressed: ColorValue(Self.OutputTheme.colorNeutralForeground1Pressed),
+    NeutralBackground: ColorValue(Self.OutputTheme.colorNeutralBackground1),
+    NeutralBackgroundHover: ColorValue(Self.OutputTheme.colorNeutralBackground1Hover),
+    NeutralBackgroundPressed: ColorValue(Self.OutputTheme.colorNeutralBackground1Pressed),
+    BrandForeground: ColorValue(Self.OutputTheme.colorBrandForeground1),
+    BrandForegroundHover: ColorValue(Self.OutputTheme.colorCompoundBrandForeground1Hover),
+    BrandForegroundPressed: ColorValue(Self.OutputTheme.colorBrandForeground2Pressed),
+    BrandBackground: ColorValue(Self.OutputTheme.colorBrandBackground),
+    BrandBackgroundHover: ColorValue(Self.OutputTheme.colorBrandBackgroundHover),
+    BrandBackgroundPressed: ColorValue(Self.OutputTheme.colorBrandBackgroundPressed)
+});' />
+   
+    <resources>
+      <code path="index.ts" order="1"/>
+      <platform-library name="React" version="16.14.0" />
+      <platform-library name="Fluent" version="9.46.2" />    
+    </resources>    
+  </control>
+</manifest>
