@@ -437,6 +437,12 @@ export const OutputThemeSchema = {
         "shadow8Brand": {"type": "string"}, 
         "shadow16Brand": {"type": "string"}, 
         "shadow28Brand": {"type": "string"}, 
-        "shadow64Brand": {"type": "string"}
+        "shadow64Brand": {"type": "string"}, 
+        "accent1BackgroundColor": {"type": "string"},
+        "accent1ForegroundColor": {"type": "string"},
+        "accent1BorderColor": {"type": "string"},
+        "accent2BackgroundColor": {"type": "string"},
+        "accent2ForegroundColor": {"type": "string"},
+        "accent2BorderColor": {"type": "string"},
     }
 };

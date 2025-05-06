@@ -4,12 +4,12 @@ import { IInputs, IOutputs } from "./generated/ManifestTypes";
 import {  IThemingProps, Theming } from "./Theming";
 import * as React from "react";
 import { OutputThemeSchema } from "./Schema/OutputThemeSchema";
+import { TExtendedTheme } from "./Schema/types";
 
 export class ThemingColors implements ComponentFramework.ReactControl<IInputs, IOutputs> {
-    private notifyOutputChanged: () => void;
-    private colorCode = "";
+    private notifyOutputChanged: () => void;    
     private events: string[] = [];
-    private theme : Theme | undefined = undefined;
+    private theme : Theme & TExtendedTheme | undefined = undefined;
     private context: ComponentFramework.Context<IInputs>;    
 
     /**
@@ -19,7 +19,7 @@ export class ThemingColors implements ComponentFramework.ReactControl<IInputs, I
         // Empty
     }
 
-    private changeColor = (newTheme: Theme) => {
+    private changeColor = (newTheme: Theme & TExtendedTheme) => {
        // this.color1 = color;
         this.events.push("OnColorChange");
         /*this.colorCode = this.isDarkMode===false
@@ -57,6 +57,12 @@ export class ThemingColors implements ComponentFramework.ReactControl<IInputs, I
             theme: this.context.fluentDesignLanguage?.tokenTheme as Theme,
             isDarkMode : this.context.parameters.isDarkMode.raw ?? false,
             brand: this.context.fluentDesignLanguage?.brand as BrandVariants,
+            accent1BackgroundColor: this.context.parameters.accent1Background.raw ?? undefined,
+            accent1ForegroundColor: this.context.parameters.accent1Foreground.raw ?? undefined,
+            accent1BorderColor: this.context.parameters.accent1Border.raw ?? undefined,
+            accent2BackgroundColor: this.context.parameters.accent2Background.raw ?? undefined,
+            accent2ForegroundColor: this.context.parameters.accent2Foreground.raw ?? undefined,
+            accent2BorderColor: this.context.parameters.accent2Border.raw ?? undefined
          };
         return React.createElement(
             Theming, props

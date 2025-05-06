@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="Dianamics" constructor="ThemingColors" version="0.1.2" display-name-key="ThemingColors" description-key="ThemingColors description" control-type="virtual" >   
+  <control namespace="Dianamics" constructor="ThemingColors" version="0.1.6" display-name-key="ThemingColors" description-key="ThemingColors description" control-type="virtual" >   
     <external-service-usage enabled="false">     
     </external-service-usage>
 
     <property name="isDarkMode" display-name-key="IsDarkMode" description-key="IsDarkMode" 
       of-type="TwoOptions" usage="input" 
       required="false" pfx-default-value="false" />
+      
+    <property name="accent1Background" display-name-key="Accent1Background" description-key="Accent1Background"
+      of-type="SingleLine.Text" usage="input" required="false" pfx-default-value='"colorPalettePeachBackground2"'/>
+    <property name="accent1Foreground" display-name-key="Accent1Foreground" description-key="Accent1Foreground"
+      of-type="SingleLine.Text" usage="input" required="false" pfx-default-value='"colorPalettePeachForeground2"'/>
+    <property name="accent1Border" display-name-key="Accent1Border" description-key="Accent1Border"
+      of-type="SingleLine.Text" usage="input" required="false" pfx-default-value='"colorPalettePeachBorderActive"'/>
+    <property name="accent2Background" display-name-key="Accent2Background" description-key="Accent2Background"
+      of-type="SingleLine.Text" usage="input" required="false" pfx-default-value='"colorPaletteLightTealBackground2"'/>
+    <property name="accent2Foreground" display-name-key="Accent2Foreground" description-key="Accent2Foreground"
+      of-type="SingleLine.Text" usage="input" required="false" pfx-default-value='"colorPaletteLightTealForeground2"'/>
+    <property name="accent2Border" display-name-key="Accent2Border" description-key="Accent2Border"
+      of-type="SingleLine.Text" usage="input" required="false" pfx-default-value='"colorPaletteLightTealBorderActive"'/>
 
     <property name="OutputTheme" display-name-key="OutputTheme" description-key="OutputTheme" of-type="Object" usage="output" />
     <property name="OutputThemeSchema" display-name-key="OutputThemeSchema" description-key="OutputThemeSchema" of-type="SingleLine.Text" usage="input" hidden="true"/> 
@@ -16,7 +29,7 @@
     </property-dependencies>
 
     <event name="OnColorChanged" display-name-key="OnColorChanged" description-key="OnColorChanged" 
-        pfx-default-value='Set(glbTheme, {
+        pfx-default-value='Set(ExtendedTheme, {
     ErrorBackground : ColorValue(Self.OutputTheme.colorStatusDangerBackground1), 
     ErrorForeground: ColorValue(Self.OutputTheme.colorStatusDangerForeground1), 
     ErrorBorder: ColorValue(Self.OutputTheme.colorStatusDangerBorder1),    
@@ -37,7 +50,13 @@
     BrandForegroundPressed: ColorValue(Self.OutputTheme.colorBrandForeground2Pressed),
     BrandBackground: ColorValue(Self.OutputTheme.colorBrandBackground),
     BrandBackgroundHover: ColorValue(Self.OutputTheme.colorBrandBackgroundHover),
-    BrandBackgroundPressed: ColorValue(Self.OutputTheme.colorBrandBackgroundPressed)
+    BrandBackgroundPressed: ColorValue(Self.OutputTheme.colorBrandBackgroundPressed), 
+    Accent1BackgroundColor: ColorValue(Self.OutputTheme.accent1BackgroundColor),
+    Accent1ForegroundColor: ColorValue(Self.OutputTheme.accent1ForegroundColor),
+    Accent1BorderColor: ColorValue(Self.OutputTheme.accent1BorderColor),
+    Accent2BackgroundColor: ColorValue(Self.OutputTheme.accent2BackgroundColor),
+    Accent2ForegroundColor: ColorValue(Self.OutputTheme.accent2ForegroundColor),
+    Accent2BorderColor: ColorValue(Self.OutputTheme.accent2BorderColor)
 });' />
    
     <resources>
