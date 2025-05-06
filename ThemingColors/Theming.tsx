@@ -3,7 +3,7 @@ import { BrandVariants, createDarkTheme, Label, Theme } from '@fluentui/react-co
 import { TExtendedTheme } from './Schema/types';
 
 export interface IThemingProps {
-  isDarkMode: boolean;
+  isDarkMode ?: boolean;
   brand?: BrandVariants;
   theme: Theme;
   accent1ForegroundColor?: string;
@@ -19,7 +19,7 @@ export const Theming: React.FunctionComponent<IThemingProps> = ({onChange, theme
   accent1BackgroundColor, accent1ForegroundColor, accent1BorderColor,
   accent2BackgroundColor, accent2ForegroundColor, accent2BorderColor
 }: IThemingProps) => {  
-  const isDark = React.useRef(isDarkMode);
+  const isDark = React.useRef<boolean |undefined>(undefined);
   
   const wraptoExtendedTheme = (theme: Theme) => {   
     return  {...theme, 
@@ -49,7 +49,7 @@ export const Theming: React.FunctionComponent<IThemingProps> = ({onChange, theme
         ? createDarkTheme(brand as BrandVariants)
         : theme;    
     onChange(wraptoExtendedTheme(tempTheme));
-    
+
   }, [theme, accent1BackgroundColor, accent1ForegroundColor, accent1BorderColor,
     accent2BackgroundColor, accent2ForegroundColor, accent2BorderColor, 
   isDarkMode, brand]);
