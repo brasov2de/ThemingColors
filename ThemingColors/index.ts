@@ -20,11 +20,7 @@ export class ThemingColors implements ComponentFramework.ReactControl<IInputs, I
     }
 
     private changeColor = (newTheme: Theme & TExtendedTheme) => {
-       // this.color1 = color;
-        this.events.push("OnColorChange");
-        /*this.colorCode = this.isDarkMode===false
-            ? this.context.fluentDesignLanguage?.tokenTheme?.[this.colorName ?? "colorBrandForeground1"]
-            : (createDarkTheme(this.context.fluentDesignLanguage?.brand as BrandVariants) as any)?.[this.colorName ?? "colorBrandForeground1"];*/
+        this.events.push("OnColorChange");     
         this.theme = newTheme;
         this.notifyOutputChanged();
     }
@@ -43,6 +39,10 @@ export class ThemingColors implements ComponentFramework.ReactControl<IInputs, I
     ): void {
         this.notifyOutputChanged = notifyOutputChanged;
         this.context = context;
+        window.setTimeout(() => {
+            this.events.push("OnColorChange");
+            this.notifyOutputChanged();
+        }, 2000);
     }
 
     /**
@@ -78,7 +78,7 @@ export class ThemingColors implements ComponentFramework.ReactControl<IInputs, I
             window.setTimeout(() => {
             this.context.events.OnColorChanged();
             this.events = [];
-            }, 100);
+            }, 500);
         }
         return {  
            OutputTheme: this.theme

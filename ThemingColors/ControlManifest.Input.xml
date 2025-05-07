@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <manifest>
-  <control namespace="Dianamics" constructor="ThemingColors" version="0.1.7" display-name-key="ThemingColors" description-key="ThemingColors description" control-type="virtual" >   
+  <control namespace="Dianamics" constructor="ThemingColors" version="0.1.10" display-name-key="ThemingColors" description-key="ThemingColors description" control-type="virtual" >   
     <external-service-usage enabled="false">     
     </external-service-usage>
 
