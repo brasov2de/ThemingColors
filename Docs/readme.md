@@ -12,13 +12,16 @@ Just import the PCF "ThemingColors" in your organization and enable PCFs.
 All you have to do is to add the ThemingColors to your app
 ![alt text](image-1.png)
 
-There two ways to use it.
+There are two ways to use it.
 
 ## Using the global variable "ExtendedTheme"
 As soon the component in used in your app (just drag it somewhere on your screen, it's a transparent element), you can directly use the global variable ExtendedTheme.
+![alt text](image-10.png)
+
 This variable is providing a set of pre-defined colors. You can find the list of colors by inspecting the the ThemingColors event "OnColorChanged".
 The current definition is looking like this, but you can change it as you wish.
 ![alt text](image-2.png)
+
 
 ## Using the output property OutputTheme
 The OuputTheme property of the PCF is providing the complete theme defined in the App.
