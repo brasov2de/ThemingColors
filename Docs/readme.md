@@ -3,6 +3,8 @@ This PCF is intended to be used to Canvas Apps or CustomPages in Power Apps.
 This should provide access to all the colors or theming tokes from Fluent UI 9 context and make the work with Theming easier.
 This colors can be used by LowCode components in CanvasApps.
 
+The PCF is not intended to override the Theming in Power Apps, but as a help to deal with colors around the theming you choose.
+
 # PreRequires
 The Canvas App or Custom Page must have the feature "Modern controls and themes" activated
 ![alt text](image.png)
